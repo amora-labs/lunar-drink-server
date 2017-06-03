@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd /opt/lunardrink
+
+lua start-server.lua
