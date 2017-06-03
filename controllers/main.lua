@@ -3,7 +3,7 @@ local json = require "dkjson"
 local lunardrink = require "lunardrink"
 
 function main.index(page)
-    page:render('index')
+    page:redirect('index.html')
 end
 
 function main.make(page)

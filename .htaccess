@@ -2,12 +2,14 @@ LuaPackagePath "{{path}}/?.lua"
 <FilesMatch "\.lua$">
 	    AddHandler lua-script .lua
 </FilesMatch>
-DirectoryIndex index.lua
+DirectoryIndex index.lua index.html
 
 #Uncomment these lines to enable friendly urls on apache
 
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond $1 !^(pub)
 RewriteRule ^([^/]+)/([^/]+)/([^.]*)$ index.lua?r=$1/$2&q=$3 [L]
 RewriteRule ^([^/]+)/([^/]+)$ index.lua?r=$1&q=$3 [L]
 RewriteRule ^([^.]+)$ index.lua?r=$1 [L]
